@@ -1,9 +1,10 @@
-const CACHE_NAME = "medias-app-cache-v1";
+const CACHE_NAME = "medias-app-cache-v2"; // cambialo para forzar actualización
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./styles.css",
   "./script.js",
+  "./icon.png",
   "https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"
   // Agregá aquí otros archivos si los necesitás cachear
 ];

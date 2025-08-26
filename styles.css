@@ -1,7 +1,7 @@
 :root {
   --bg: linear-gradient(120deg, #f9f9fb, #e3ecf9);
-  --primary: #3f51b5;       /* Azul más fuerte */
-  --primary-light: #5c6bc0;
+  --primary: #0d1117;       /* Azul más fuerte */
+  --primary-light: #8c939c;
   --accent: #00bcd4;        /* Cyan */
   --danger: #f44336;
   --font: 'Inter', sans-serif;
@@ -31,6 +31,7 @@ main {
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
+  gap: 5px;
 }
 
 .tab-btn {
@@ -43,11 +44,18 @@ main {
   border-bottom: 3px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: #0d1117;
+}
+
+.tab-btn:hover {
+  background-color:#0d1117;
+  color: #f0f6fc;
 }
 
 .tab-btn.active {
   border-color: var(--primary);
-  color: var(--primary);
+  background-color: #0d1117;
+  color: #f0f6fc;
 }
 
 .tab-content {
