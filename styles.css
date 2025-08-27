@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&display=swap');
+
 :root {
-  --bg: linear-gradient(120deg, #f9f9fb, #e3ecf9);
-  --primary: #0d1117;       /* Azul más fuerte */
+  --bg: #fff;
+  --primary: #0d1117;
   --primary-light: #8c939c;
-  --accent: #00bcd4;        /* Cyan */
+  --accent: #00bcd4;
   --danger: #f44336;
   --font: 'Inter', sans-serif;
 }
@@ -118,12 +120,12 @@ button:hover {
 }
 
 .registro-card {
-  background: #ffffff;
+  background-color: #e8e8e4;
   padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  /*box-shadow: 2px 2px 4px #0d1117;*/
   font-size: 0.9rem;
-  border-left: 4px solid var(--primary);
+  /*border-left: 4px solid var(--primary);*/
 }
 
 .registro-card p {
@@ -192,7 +194,7 @@ tr:nth-child(even) {
   border-collapse: collapse;
   font-size: 0.9rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -219,6 +221,18 @@ tr:nth-child(even) {
   background-color: var(--primary-light);
   font-weight: 700;
   color: var(--primary-dark);
+}
+
+h1 {
+  font-family: "Libertinus Keyboard", system-ui;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+h1 img {
+  width: 100px;
+  height: 80px;
 }
 
 @media (max-width: 480px) {

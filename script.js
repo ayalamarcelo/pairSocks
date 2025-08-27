@@ -236,16 +236,21 @@ limpiarBtn.addEventListener("click", () => {
 });
 
 // Generar PDF
-pdfBtn.addEventListener("click", () => {
+pdfBtn.addEventListener("click", async () => {
+  const element = document.getElementById("listaRegistros");
+  const canvas = await html2canvas(element);
+  const imgData = canvas.toDataURL("image/png");
+
   const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.text("Listado de registros", 10, 10);
-  doc.html(document.getElementById("listaRegistros"), {
-    callback: (doc) => doc.save("listado_medias.pdf"),
-    x: 10,
-    y: 20
-  });
+  const pdf = new jsPDF("p", "mm", "a4");
+  const imgProps = pdf.getImageProperties(imgData);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+  pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+  pdf.save("listado_medias.pdf");
 });
+
 
 // WhatsApp
 whatsappBtn.addEventListener("click", () => {
@@ -268,3 +273,20 @@ if ("serviceWorker" in navigator) {
       .catch((err) => console.error("Error registrando Service Worker:", err));
   });
 }
+
+const resumenPdfBtn = document.getElementById("resumenPdfBtn"); // suponiendo que existe
+
+resumenPdfBtn.addEventListener("click", async () => {
+  const element = document.getElementById("resumenContenido");
+  const canvas = await html2canvas(element);
+  const imgData = canvas.toDataURL("image/png");
+
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF("p", "mm", "a4");
+  const imgProps = pdf.getImageProperties(imgData);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+  pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+  pdf.save("resumen_medias.pdf");
+});
